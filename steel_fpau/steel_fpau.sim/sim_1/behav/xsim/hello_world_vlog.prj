@@ -1,16 +1,16 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1" \
-"../../../../steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" \
-"../../../../steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" \
-"../../../../../../../../git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" \
+verilog xil_defaultlib  --include "../../../../steel_fpau.gen/sources_1/ip/clk_wiz_0_1" \
+"../../../../steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" \
+"../../../../steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" \
+"../../../../../riscv_steel_core.v" \
 
-sv xil_defaultlib  --include "../../../../steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1" \
-"../../../../../../../../git_repos/fpau/fpau_top.sv" \
-"../../../../../../../../git_repos/fpau/reduction_solinas_12_10_8.sv" \
-"../../../../../../../../git_repos/fpau/reduction_solinas_23_13.sv" \
+sv xil_defaultlib  --include "../../../../steel_fpau.gen/sources_1/ip/clk_wiz_0_1" \
+"../../../../../../../rtl/fpau_top.sv" \
+"../../../../../../../rtl/reduction_solinas_12_10_8.sv" \
+"../../../../../../../rtl/reduction_solinas_23_13.sv" \
 
-verilog xil_defaultlib  --include "../../../../steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1" \
-"../../../../../../../../git_repos/steel_new_fpau/riscv-steel-core/hello_world/hello_world.v" \
+verilog xil_defaultlib  --include "../../../../steel_fpau.gen/sources_1/ip/clk_wiz_0_1" \
+"../../../../../hello_world/hello_world.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

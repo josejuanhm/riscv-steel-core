@@ -4,50 +4,50 @@ Running: /home/jj/Xilinx/Vivado/2021.2/bin/unwrapped/lnx64.o/xelab --incr --debu
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'irq_timer' [/home/jj/git_repos/steel_new_fpau/riscv-steel-core/hello_world/hello_world.v:123]
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'irq_software' [/home/jj/git_repos/steel_new_fpau/riscv-steel-core/hello_world/hello_world.v:125]
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 64 for port 'real_time' [/home/jj/git_repos/steel_new_fpau/riscv-steel-core/hello_world/hello_world.v:129]
-WARNING: [VRFC 10-3091] actual bit length 46 differs from formal bit length 24 for port 'in_c' [/home/jj/git_repos/fpau/fpau_top.sv:129]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'irq_timer' [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/hello_world/hello_world.v:123]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'irq_software' [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/hello_world/hello_world.v:125]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 64 for port 'real_time' [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/hello_world/hello_world.v:129]
+WARNING: [VRFC 10-3091] actual bit length 46 differs from formal bit length 24 for port 'in_c' [/home/jj/git_repos/fpau_tests/rtl/fpau_top.sv:127]
 Completed static elaboration
 Starting simulation data flow analysis
-WARNING: [XSIM 43-4100] "/home/jj/Xilinx/Vivado/2021.2/steel_new_fpau/steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" Line 68. Module clk_wiz_0 has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/Xilinx/Vivado/2021.2/steel_new_fpau/steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" Line 68. Module clk_wiz_0_clk_wiz has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" Line 68. Module clk_wiz_0 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" Line 68. Module clk_wiz_0_clk_wiz has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/IBUF.v" Line 29. Module IBUF has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/PLLE2_ADV.v" Line 49. Module PLLE2_ADV(CLKFBOUT_MULT=42,CLKIN1_PERIOD=10.0,CLKOUT0_DIVIDE=24,DIVCLK_DIVIDE=5) has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 217. Module riscv_steel_core has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1002. Module data_fetch_store_unit has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1262. Module decoder has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 906. Module imm_generator has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 801. Module branch_decision has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1164. Module integer_file has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1542. Module csr_file has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1471. Module load_unit has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 705. Module rv32i_alu has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau/fpau_top.sv" Line 29. Module fpau_top has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau/reduction_solinas_23_13.sv" Line 23. Module reduction_solinas_23_13 has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau/reduction_solinas_12_10_8.sv" Line 23. Module reduction_solinas_12_10_8 has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/Xilinx/Vivado/2021.2/steel_new_fpau/steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" Line 68. Module clk_wiz_0 has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/Xilinx/Vivado/2021.2/steel_new_fpau/steel_new_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" Line 68. Module clk_wiz_0_clk_wiz has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 217. Module riscv_steel_core has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1002. Module data_fetch_store_unit has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1262. Module decoder has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 906. Module imm_generator has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 801. Module branch_decision has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1164. Module integer_file has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1545. Module csr_file has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1474. Module load_unit has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 705. Module rv32i_alu has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/rtl/fpau_top.sv" Line 29. Module fpau_top has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/rtl/reduction_solinas_23_13.sv" Line 23. Module reduction_solinas_23_13 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/rtl/reduction_solinas_12_10_8.sv" Line 23. Module reduction_solinas_12_10_8 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" Line 68. Module clk_wiz_0 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" Line 68. Module clk_wiz_0_clk_wiz has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/IBUF.v" Line 29. Module IBUF has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/PLLE2_ADV.v" Line 49. Module PLLE2_ADV(CLKFBOUT_MULT=42,CLKIN1_PERIOD=10.0,CLKOUT0_DIVIDE=24,DIVCLK_DIVIDE=5) has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
 WARNING: [XSIM 43-4100] "/wrk/ci/prod/2021.2/rdi_builds/continuous/2021_10_19_3367213/data/verilog/src/unisims/BUFG.v" Line 27. Module BUFG has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 217. Module riscv_steel_core has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1002. Module data_fetch_store_unit has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1262. Module decoder has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 906. Module imm_generator has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 801. Module branch_decision has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1164. Module integer_file has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1542. Module csr_file has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 1471. Module load_unit has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/riscv_steel_core.v" Line 705. Module rv32i_alu has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau/fpau_top.sv" Line 29. Module fpau_top has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau/reduction_solinas_23_13.sv" Line 23. Module reduction_solinas_23_13 has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau/reduction_solinas_12_10_8.sv" Line 23. Module reduction_solinas_12_10_8 has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/Xilinx/Vivado/2021.2/steel_new_fpau/steel_new_fpau.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
-WARNING: [XSIM 43-4100] "/home/jj/Xilinx/Vivado/2021.2/steel_new_fpau/steel_new_fpau.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 217. Module riscv_steel_core has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1002. Module data_fetch_store_unit has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1262. Module decoder has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 906. Module imm_generator has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 801. Module branch_decision has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1164. Module integer_file has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1545. Module csr_file has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 1474. Module load_unit has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" Line 705. Module rv32i_alu has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/rtl/fpau_top.sv" Line 29. Module fpau_top has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/rtl/reduction_solinas_23_13.sv" Line 23. Module reduction_solinas_23_13 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/rtl/reduction_solinas_12_10_8.sv" Line 23. Module reduction_solinas_12_10_8 has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
+WARNING: [XSIM 43-4100] "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.sim/sim_1/behav/xsim/glbl.v" Line 6. Module glbl has a timescale but at least one module in design doesn't have timescale.
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module unisims_ver.IBUF

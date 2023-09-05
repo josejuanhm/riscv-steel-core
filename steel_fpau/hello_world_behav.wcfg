@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="hello_world_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="hello_world" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="4,630.845 ns"></ZoomStartTime>
+      <ZoomEndTime time="5,097.832 ns"></ZoomEndTime>
+      <Cursor1Time time="5,020.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="194"></NameColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wvobject type="logic" fp_name="/hello_world/clock">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/halt">
+      <obj_property name="ElementShortName">halt</obj_property>
+      <obj_property name="ObjectShortName">halt</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/uart_rx">
+      <obj_property name="ElementShortName">uart_rx</obj_property>
+      <obj_property name="ObjectShortName">uart_rx</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/uart_tx">
+      <obj_property name="ElementShortName">uart_tx</obj_property>
+      <obj_property name="ObjectShortName">uart_tx</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/clk_35Mhz">
+      <obj_property name="ElementShortName">clk_35Mhz</obj_property>
+      <obj_property name="ObjectShortName">clk_35Mhz</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/program_counter">
+      <obj_property name="ElementShortName">program_counter[31:0]</obj_property>
+      <obj_property name="ObjectShortName">program_counter[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/write_enable">
+      <obj_property name="ElementShortName">write_enable</obj_property>
+      <obj_property name="ObjectShortName">write_enable</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/write_enable_used">
+      <obj_property name="ElementShortName">write_enable_used</obj_property>
+      <obj_property name="ObjectShortName">write_enable_used</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/rd_addr">
+      <obj_property name="ElementShortName">rd_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/rd_addr_used">
+      <obj_property name="ElementShortName">rd_addr_used[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_addr_used[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/rd_data">
+      <obj_property name="ElementShortName">rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/rd_data_used">
+      <obj_property name="ElementShortName">rd_data_used[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_data_used[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q">
+      <obj_property name="ElementShortName">Q[31:1][31:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[31:1][31:0]</obj_property>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[31]">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[30]">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[29]">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[28]">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[27]">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[26]">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[25]">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[24]">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[23]">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[22]">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[21]">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[20]">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[19]">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[18]">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[17]">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[16]">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[15]">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[14]">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[13]">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[12]">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[11]">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[10]">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[9]">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[8]">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[7]">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[6]">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[5]">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[4]">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[3]">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[2]">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[1]">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[31]">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[30]">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[29]">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[28]">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[27]">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[26]">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[25]">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[24]">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[23]">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[22]">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[21]">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[20]">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[19]">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[18]">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[17]">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[16]">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[15]">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[14]">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[13]">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[12]">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[11]">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[10]">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[9]">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[8]">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[7]">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[6]">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[5]">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[4]">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[3]">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[2]">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/integer_file_instance/Q[1]">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/writeback_mux_selector_stage3">
+      <obj_property name="ElementShortName">writeback_mux_selector_stage3[2:0]</obj_property>
+      <obj_property name="ObjectShortName">writeback_mux_selector_stage3[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/riscv_steel_core_instance/decoder_instance/op_type">
+      <obj_property name="ElementShortName">op_type</obj_property>
+      <obj_property name="ObjectShortName">op_type</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/en">
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/op">
+      <obj_property name="ElementShortName">op[3:0]</obj_property>
+      <obj_property name="ObjectShortName">op[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/a0">
+      <obj_property name="ElementShortName">a0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a0[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/a1">
+      <obj_property name="ElementShortName">a1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a1[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/acc">
+      <obj_property name="ElementShortName">acc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">acc[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/omega">
+      <obj_property name="ElementShortName">omega[31:0]</obj_property>
+      <obj_property name="ObjectShortName">omega[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/rsum">
+      <obj_property name="ElementShortName">rsum[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rsum[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/out2">
+      <obj_property name="ElementShortName">out2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out2[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/Q">
+      <obj_property name="ElementShortName">Q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/mult">
+      <obj_property name="ElementShortName">mult[45:0]</obj_property>
+      <obj_property name="ObjectShortName">mult[45:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/mult_reduced_complete">
+      <obj_property name="ElementShortName">mult_reduced_complete[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_reduced_complete[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/hello_world/riscv_steel_core_instance/fpau_instance/mult_reduced_complete_centered">
+      <obj_property name="ElementShortName">mult_reduced_complete_centered[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_reduced_complete_centered[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,6 +1,74 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jj/git_repos/steel_new_fpau/riscv-steel-core/hello_world/hello_world.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_steel_core
+INFO: [VRFC 10-2458] undeclared symbol misaligned_word, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:435]
+INFO: [VRFC 10-2458] undeclared symbol misaligned_half, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:439]
+INFO: [VRFC 10-2458] undeclared symbol misaligned, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:443]
+INFO: [VRFC 10-311] analyzing module rv32i_alu
+INFO: [VRFC 10-311] analyzing module branch_decision
+INFO: [VRFC 10-311] analyzing module imm_generator
+INFO: [VRFC 10-311] analyzing module data_fetch_store_unit
+INFO: [VRFC 10-311] analyzing module integer_file
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-2458] undeclared symbol branch_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1294]
+INFO: [VRFC 10-2458] undeclared symbol jal_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1295]
+INFO: [VRFC 10-2458] undeclared symbol jalr_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1296]
+INFO: [VRFC 10-2458] undeclared symbol auipc_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1297]
+INFO: [VRFC 10-2458] undeclared symbol lui_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1298]
+INFO: [VRFC 10-2458] undeclared symbol load_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1299]
+INFO: [VRFC 10-2458] undeclared symbol store_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1300]
+INFO: [VRFC 10-2458] undeclared symbol system_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1301]
+INFO: [VRFC 10-2458] undeclared symbol op_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1302]
+INFO: [VRFC 10-2458] undeclared symbol op_imm_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1303]
+INFO: [VRFC 10-2458] undeclared symbol misc_mem_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1304]
+INFO: [VRFC 10-2458] undeclared symbol addi, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1308]
+INFO: [VRFC 10-2458] undeclared symbol slti, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1309]
+INFO: [VRFC 10-2458] undeclared symbol sltiu, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1310]
+INFO: [VRFC 10-2458] undeclared symbol andi, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1311]
+INFO: [VRFC 10-2458] undeclared symbol ori, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1312]
+INFO: [VRFC 10-2458] undeclared symbol xori, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1313]
+INFO: [VRFC 10-2458] undeclared symbol slli, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1314]
+INFO: [VRFC 10-2458] undeclared symbol srli, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1316]
+INFO: [VRFC 10-2458] undeclared symbol srai, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1318]
+INFO: [VRFC 10-2458] undeclared symbol add, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1320]
+INFO: [VRFC 10-2458] undeclared symbol sub, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1322]
+INFO: [VRFC 10-2458] undeclared symbol slt, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1324]
+INFO: [VRFC 10-2458] undeclared symbol sltu, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1326]
+INFO: [VRFC 10-2458] undeclared symbol is_and, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1328]
+INFO: [VRFC 10-2458] undeclared symbol is_or, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1330]
+INFO: [VRFC 10-2458] undeclared symbol is_xor, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1332]
+INFO: [VRFC 10-2458] undeclared symbol sll, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1334]
+INFO: [VRFC 10-2458] undeclared symbol srl, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1336]
+INFO: [VRFC 10-2458] undeclared symbol sra, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1338]
+INFO: [VRFC 10-2458] undeclared symbol fpau, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1340]
+INFO: [VRFC 10-2458] undeclared symbol csrxxx, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1344]
+INFO: [VRFC 10-2458] undeclared symbol illegal_store, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1364]
+INFO: [VRFC 10-2458] undeclared symbol illegal_load, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1368]
+INFO: [VRFC 10-2458] undeclared symbol illegal_jalr, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1373]
+INFO: [VRFC 10-2458] undeclared symbol illegal_branch, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1376]
+INFO: [VRFC 10-2458] undeclared symbol illegal_op, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1380]
+INFO: [VRFC 10-2458] undeclared symbol illegal_op_imm, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1383]
+INFO: [VRFC 10-2458] undeclared symbol illegal_system, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1386]
+INFO: [VRFC 10-2458] undeclared symbol unknown_type, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1389]
+INFO: [VRFC 10-311] analyzing module load_unit
+INFO: [VRFC 10-311] analyzing module csr_file
+INFO: [VRFC 10-2458] undeclared symbol interrupt_pending, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1643]
+INFO: [VRFC 10-2458] undeclared symbol exception_pending, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:1648]
+INFO: [VRFC 10-2458] undeclared symbol base_address_offset, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/riscv_steel_core.v:2026]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jj/git_repos/fpau_tests/rtl/fpau_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fpau_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jj/git_repos/fpau_tests/rtl/reduction_solinas_12_10_8.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reduction_solinas_12_10_8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/jj/git_repos/fpau_tests/rtl/reduction_solinas_23_13.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reduction_solinas_23_13
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/hello_world/hello_world.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hello_world
-INFO: [VRFC 10-2458] undeclared symbol clk_35Mhz, assumed default net type wire [/home/jj/git_repos/steel_new_fpau/riscv-steel-core/hello_world/hello_world.v:91]
+INFO: [VRFC 10-2458] undeclared symbol clk_35Mhz, assumed default net type wire [/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/hello_world/hello_world.v:91]
 INFO: [VRFC 10-311] analyzing module memory_mapper
 INFO: [VRFC 10-311] analyzing module dual_port_ram
 INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
