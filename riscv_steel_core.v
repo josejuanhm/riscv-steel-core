@@ -108,6 +108,7 @@ Top Module:    riscv_steel_core
 `define FUNCT3_ECALL            3'b000
 `define FUNCT3_EBREAK           3'b000
 `define FUNCT3_MRET             3'b000
+`define FUNCT3_FPAU             3'b010
 
 // OPCODES
 
@@ -180,6 +181,7 @@ Top Module:    riscv_steel_core
 `define WB_TARGET_ADDER         3'b011
 `define WB_CSR                  3'b100
 `define WB_PC_PLUS_4            3'b101
+`define WB_FPAU                 3'b110
 
 // Immediate format selection
 
@@ -256,14 +258,17 @@ module riscv_steel_core (
   reg   [31:0]  program_counter;
   reg   [31:0]  next_program_counter;
   reg   [31:0]  writeback_multiplexer_output;
-  reg   [4:0 ]  instruction_rd_address_stage3;  
+  reg   [4:0 ]  instruction_rd_address_stage3;
+  reg   [4:0 ]  instruction_rd2_address_stage3;
   reg   [11:0]  instruction_csr_address_stage3;  
   reg   [31:0]  rs1_data_stage3;  
   reg   [31:0]  rs2_data_stage3;
+  reg   [31:0]  rs3_data_stage3;
   reg   [31:0]  program_counter_stage3;
   reg   [31:0]  program_counter_plus_4_stage3;    
   reg   [31:0]  target_address_adder_stage3;  
   reg   [3:0 ]  alu_operation_code_stage3;
+  reg   [3:0 ]  fpau_operation_code_stage3;
   reg   [1:0 ]  load_size_stage3;
   reg   [2:0 ]  writeback_mux_selector_stage3;  
   reg   [2:0 ]  csr_operation_stage3;  
@@ -274,13 +279,16 @@ module riscv_steel_core (
   reg           load_unsigned_stage3;  
   reg           alu_2nd_operand_source_stage3;
   reg           csr_file_write_enable_stage3;
-  reg           integer_file_write_enable_stage3;  
+  reg           integer_file_write_enable_stage3;
+  reg           integer_file_write_enable_fpau_stage3;
   reg           halt_register;
   
   wire  [1:0 ]  program_counter_source;
   wire  [31:0]  exception_program_counter;
   wire  [31:0]  load_data;
   wire  [31:0]  alu_output;
+  wire  [31:0]  fpau_output1;
+  wire  [31:0]  fpau_output2;
   wire  [31:0]  trap_address;
   wire  [31:0]  next_address;
   wire  [31:0]  branch_target_address;
@@ -291,22 +299,27 @@ module riscv_steel_core (
   wire  [2:0 ]  instruction_funct3;
   wire  [4:0 ]  instruction_rs1_address;
   wire  [4:0 ]  instruction_rs2_address;
+  wire  [4:0 ]  instruction_rs3_address;
   wire  [4:0 ]  instruction_rd_address;
+  wire  [4:0 ]  instruction_rd2_address;
   wire  [11:0]  instruction_csr_address;
   wire  [31:0]  target_address_adder;
   wire  [31:0]  immediate;
   wire  [31:0]  rs1_data;
   wire  [31:0]  rs2_data;
+  wire  [31:0]  rs3_data;
   wire  [31:0]  csr_data_out;
   wire  [2:0 ]  writeback_mux_selector;
   wire  [2:0 ]  immediate_type;
   wire  [2:0 ]  csr_operation;
   wire  [3:0 ]  alu_operation_code;
+  wire  [3:0 ]  fpau_operation_code;
   wire  [1:0 ]  load_size;
   wire          load_unsigned;
   wire          alu_2nd_operand_source;
   wire          csr_file_write_enable;
   wire          integer_file_write_enable;
+  wire          integer_file_write_enable_fpau;
   wire          target_address_source;
   wire          take_branch;
   wire          take_trap;
@@ -409,7 +422,9 @@ module riscv_steel_core (
   assign instruction_funct7       = instruction[31:25];
   assign instruction_rs1_address  = instruction[19:15];
   assign instruction_rs2_address  = instruction[24:20];
+  assign instruction_rs3_address  = instruction[11:7 ];
   assign instruction_rd_address   = instruction[11:7 ];
+  assign instruction_rd2_address  = instruction[19:15];
   assign instruction_csr_address  = instruction[31:20]; 
 
   assign target_address_adder =
@@ -454,28 +469,30 @@ module riscv_steel_core (
   decoder
   decoder_instance (
   
-    .instruction_opcode         (instruction_opcode         ),
-    .instruction_funct7         (instruction_funct7         ),
-    .instruction_funct3         (instruction_funct3         ),
-    .instruction_rs1_address    (instruction_rs1_address    ),
-    .instruction_rs2_address    (instruction_rs2_address    ),
-    .instruction_rd_address     (instruction_rd_address     ),
-    .alu_operation_code         (alu_operation_code         ),
-    .load_size                  (load_size                  ),
-    .load_unsigned              (load_unsigned              ),
-    .alu_2nd_operand_source     (alu_2nd_operand_source     ),
-    .target_address_source      (target_address_source      ),
-    .csr_file_write_enable      (csr_file_write_enable      ),
-    .integer_file_write_enable  (integer_file_write_enable  ),
-    .writeback_mux_selector     (writeback_mux_selector     ),
-    .immediate_type             (immediate_type             ),
-    .csr_operation              (csr_operation              ),
-    .illegal_instruction        (illegal_instruction        ),
-    .ecall                      (ecall                      ),
-    .ebreak                     (ebreak                     ),
-    .mret                       (mret                       ),
-    .load                       (load                       ),
-    .store                      (store                      )
+    .instruction_opcode              (instruction_opcode              ),
+    .instruction_funct7              (instruction_funct7              ),
+    .instruction_funct3              (instruction_funct3              ),
+    .instruction_rs1_address         (instruction_rs1_address         ),
+    .instruction_rs2_address         (instruction_rs2_address         ),
+    .instruction_rd_address          (instruction_rd_address          ),
+    .alu_operation_code              (alu_operation_code              ),
+    .fpau_operation_code             (fpau_operation_code             ),
+    .load_size                       (load_size                       ),
+    .load_unsigned                   (load_unsigned                   ),
+    .alu_2nd_operand_source          (alu_2nd_operand_source          ),
+    .target_address_source           (target_address_source           ),
+    .csr_file_write_enable           (csr_file_write_enable           ),
+    .integer_file_write_enable       (integer_file_write_enable       ),
+    .integer_file_write_enable_fpau  (integer_file_write_enable_fpau  ),
+    .writeback_mux_selector          (writeback_mux_selector          ),
+    .immediate_type                  (immediate_type                  ),
+    .csr_operation                   (csr_operation                   ),
+    .illegal_instruction             (illegal_instruction             ),
+    .ecall                           (ecall                           ),
+    .ebreak                          (ebreak                          ),
+    .mret                            (mret                            ),
+    .load                            (load                            ),
+    .store                           (store                           )
       
   );
     
@@ -502,17 +519,24 @@ module riscv_steel_core (
   integer_file
   integer_file_instance (
     
-    .clock         (clock                                 ),
-    .clock_enable  (clock_enable                          ),
-    .rs1_addr      (instruction_rs1_address               ),
-    .rs2_addr      (instruction_rs2_address               ),    
-    .rd_addr       (instruction_rd_address_stage3         ),
-    .write_enable  (flush_pipeline ?
-                    1'b0 :
-                    integer_file_write_enable_stage3      ),
-    .rd_data       (writeback_multiplexer_output          ),
-    .rs1_data      (rs1_data                              ),
-    .rs2_data      (rs2_data                              )
+    .clock              (clock                                 ),
+    .clock_enable       (clock_enable                          ),
+    .rs1_addr           (instruction_rs1_address               ),
+    .rs2_addr           (instruction_rs2_address               ),
+    .rs3_addr           (instruction_rs3_address               ),
+    .rd_addr            (instruction_rd_address_stage3         ),
+    .rd2_addr           (instruction_rd2_address_stage3        ),
+    .write_enable       (flush_pipeline ?
+                         1'b0 :
+                         integer_file_write_enable_stage3      ),
+    .write_enable_fpau  (flush_pipeline ?
+                        1'b0 :
+                        integer_file_write_enable_fpau_stage3  ),
+    .rd_data            (writeback_multiplexer_output          ),
+    .rd2_data           (fpau_output2                          ),
+    .rs1_data           (rs1_data                              ),
+    .rs2_data           (rs2_data                              ),
+    .rs3_data           (rs3_data                              )
 
   );
 
@@ -556,40 +580,48 @@ module riscv_steel_core (
        
   always @(posedge clock) begin
     if(reset) begin
-      instruction_rd_address_stage3     <= 5'b00000;
-      instruction_csr_address_stage3    <= 12'b000000000000;
-      rs1_data_stage3                   <= 32'h00000000;
-      rs2_data_stage3                   <= 32'h00000000;
-      program_counter_stage3            <= boot_address;
-      program_counter_plus_4_stage3     <= 32'h00000000;
-      target_address_adder_stage3       <= 32'h00000000;
-      alu_operation_code_stage3         <= 4'b0000;
-      load_size_stage3                  <= 2'b00;
-      load_unsigned_stage3              <= 1'b0;
-      alu_2nd_operand_source_stage3     <= 1'b0;
-      csr_file_write_enable_stage3      <= 1'b0;
-      integer_file_write_enable_stage3  <= 1'b0;
-      writeback_mux_selector_stage3     <= `WB_ALU;
-      csr_operation_stage3              <= 3'b000;
-      immediate_stage3                  <= 32'h00000000;
+      instruction_rd_address_stage3          <= 5'b00000;
+      instruction_rd2_address_stage3         <= 5'b00000;
+      instruction_csr_address_stage3         <= 12'b000000000000;
+      rs1_data_stage3                        <= 32'h00000000;
+      rs2_data_stage3                        <= 32'h00000000;
+      rs3_data_stage3                        <= 32'h00000000;
+      program_counter_stage3                 <= boot_address;
+      program_counter_plus_4_stage3          <= 32'h00000000;
+      target_address_adder_stage3            <= 32'h00000000;
+      alu_operation_code_stage3              <= 4'b0000;
+      fpau_operation_code_stage3             <= 4'b0000;
+      load_size_stage3                       <= 2'b00;
+      load_unsigned_stage3                   <= 1'b0;
+      alu_2nd_operand_source_stage3          <= 1'b0;
+      csr_file_write_enable_stage3           <= 1'b0;
+      integer_file_write_enable_stage3       <= 1'b0;
+      integer_file_write_enable_fpau_stage3  <= 1'b0;
+      writeback_mux_selector_stage3          <= `WB_ALU;
+      csr_operation_stage3                   <= 3'b000;
+      immediate_stage3                       <= 32'h00000000;
     end
     else if (clock_enable) begin
-      instruction_rd_address_stage3     <= instruction_rd_address;
-      instruction_csr_address_stage3    <= instruction_csr_address;
-      rs1_data_stage3                   <= rs1_data;
-      rs2_data_stage3                   <= rs2_data;
-      program_counter_stage3            <= program_counter;
-      program_counter_plus_4_stage3     <= program_counter_plus_4;
-      target_address_adder_stage3       <= target_address_adder;
-      alu_operation_code_stage3         <= alu_operation_code;
-      load_size_stage3                  <= load_size;
-      load_unsigned_stage3              <= load_unsigned;
-      alu_2nd_operand_source_stage3     <= alu_2nd_operand_source;
-      csr_file_write_enable_stage3      <= csr_file_write_enable;
-      integer_file_write_enable_stage3  <= integer_file_write_enable;
-      writeback_mux_selector_stage3     <= writeback_mux_selector;
-      csr_operation_stage3              <= csr_operation;
-      immediate_stage3                  <= immediate;
+      instruction_rd_address_stage3          <= instruction_rd_address;
+      instruction_rd2_address_stage3         <= instruction_rd2_address;
+      instruction_csr_address_stage3         <= instruction_csr_address;
+      rs1_data_stage3                        <= rs1_data;
+      rs2_data_stage3                        <= rs2_data;
+      rs3_data_stage3                        <= rs3_data;
+      program_counter_stage3                 <= program_counter;
+      program_counter_plus_4_stage3          <= program_counter_plus_4;
+      target_address_adder_stage3            <= target_address_adder;
+      alu_operation_code_stage3              <= alu_operation_code;
+      fpau_operation_code_stage3             <= fpau_operation_code;
+      load_size_stage3                       <= load_size;
+      load_unsigned_stage3                   <= load_unsigned;
+      alu_2nd_operand_source_stage3          <= alu_2nd_operand_source;
+      csr_file_write_enable_stage3           <= csr_file_write_enable;
+      integer_file_write_enable_stage3       <= integer_file_write_enable;
+      integer_file_write_enable_fpau_stage3  <= integer_file_write_enable_fpau;
+      writeback_mux_selector_stage3          <= writeback_mux_selector;
+      csr_operation_stage3                   <= csr_operation;
+      immediate_stage3                       <= immediate;
     end
   end    
     
@@ -600,6 +632,7 @@ module riscv_steel_core (
   always @* begin
     case (writeback_mux_selector_stage3)
       `WB_ALU:          writeback_multiplexer_output = alu_output;
+      `WB_FPAU:         writeback_multiplexer_output = fpau_output1;
       `WB_LOAD_UNIT:    writeback_multiplexer_output = load_data;
       `WB_UPPER_IMM:    writeback_multiplexer_output = immediate_stage3;
       `WB_TARGET_ADDER: writeback_multiplexer_output = target_address_adder_stage3;
@@ -630,6 +663,18 @@ module riscv_steel_core (
     .operation_code             (alu_operation_code_stage3        ),    
     .operation_result           (alu_output                       )
 
+  );
+
+  fpau_top fpau_instance(
+    .CLK(clock),
+    .en(integer_file_write_enable_fpau_stage3),
+    .op(fpau_operation_code_stage3),
+    .a0(rs3_data_stage3),
+    .a1(rs1_data_stage3),
+    .acc(rs2_data_stage3),
+    .omega(rs2_data_stage3),
+    .rsum(fpau_output1),
+    .out2(fpau_output2)
   );
     
 endmodule
@@ -1124,18 +1169,31 @@ module integer_file (
   // Signals used with pipeline stage 2
 
   input  wire   [4:0 ]  rs1_addr,
-  input  wire   [4:0 ]  rs2_addr,    
+  input  wire   [4:0 ]  rs2_addr,
+  input  wire   [4:0 ]  rs3_addr,
   output wire   [31:0]  rs1_data,
   output wire   [31:0]  rs2_data,
+  output wire   [31:0]  rs3_data,
   
   // Signals used with pipeline stage 3
 
   input  wire   [4:0 ]  rd_addr,
   input  wire           write_enable,
-  input  wire   [31:0]  rd_data
+  input  wire   [31:0]  rd_data,
+
+  input  wire   [4:0 ]  rd2_addr,
+  input  wire           write_enable_fpau,
+  input  wire   [31:0]  rd2_data
 
   );
-    
+  
+  reg         write_enable_fpau_delay;
+  reg  [4:0 ] rd2_addr_delay;
+  reg  [31:0] rd2_data_delay;
+  wire        write_enable_used;
+  wire [31:0] rd_data_used;
+  wire [4:0 ] rd_addr_used;
+
   wire [31:0] rs1_mux;
   wire [31:0] rs2_mux;  
 
@@ -1146,10 +1204,30 @@ module integer_file (
   initial
     for (i=1; i <= 31; i=i+1)
       Q[i] <= 32'h00000000;
-
-  always @(posedge clock)
+  
+  always @(posedge clock) begin
     if (clock_enable & write_enable)
-      Q[rd_addr] <= rd_data;
+      rd2_addr_delay          <= rd2_addr;
+      write_enable_fpau_delay <= write_enable_fpau;
+      rd2_data_delay          <= rd2_data;
+  end
+
+  // Assign delayed signals to write second FPAU output to the integer file
+  assign rd_addr_used      = write_enable_fpau_delay == 1'b1 ? rd2_addr_delay          : rd_addr;
+  assign rd_data_used      = write_enable_fpau_delay == 1'b1 ? rd2_data_delay          : rd_data;
+  assign write_enable_used = write_enable_fpau_delay == 1'b1 ? write_enable_fpau_delay : write_enable;
+
+  always @(posedge clock) begin
+    if (clock_enable & write_enable_used)
+      Q[rd_addr_used] <= rd_data_used;
+  end
+
+  //always @(posedge clock) begin
+  //  if (clock_enable & write_enable)
+  //    Q[rd_addr] <= rd_data;
+  //  if (clock_enable & write_enable_fpau)
+  //    Q[rd2_addr] <= rd2_data;
+  //end
 
   assign rs1_mux =
     rs1_addr == rd_addr && write_enable == 1'b1 ?
@@ -1170,6 +1248,8 @@ module integer_file (
     rs2_addr == 5'b00000 ?
     32'h00000000 :
     rs2_mux;
+  
+  assign rs3_data = Q[rs3_addr];
     
 endmodule
 
@@ -1189,11 +1269,13 @@ module decoder (
   input wire    [4:0] instruction_rd_address,
   
   output wire   [3:0] alu_operation_code,
+  output wire   [3:0] fpau_operation_code,
   output wire   [1:0] load_size,
   output wire         load_unsigned,
   output wire         alu_2nd_operand_source,
   output wire         target_address_source,
   output wire         integer_file_write_enable,
+  output wire         integer_file_write_enable_fpau,
   output wire         csr_file_write_enable,
   output  reg   [2:0] writeback_mux_selector,
   output  reg   [2:0] immediate_type,
@@ -1254,7 +1336,11 @@ module decoder (
   assign srl    = op_type     & instruction_funct3 == `FUNCT3_SRL
                               & instruction_funct7 == `FUNCT7_SRL;
   assign sra    = op_type     & instruction_funct3 == `FUNCT3_SRA
-                              & instruction_funct7 == `FUNCT7_SRA;  
+                              & instruction_funct7 == `FUNCT7_SRA;
+  assign fpau   = op_type     & instruction_funct3 == `FUNCT3_FPAU 
+                              & instruction_funct7[6:5] != 2'b00 
+                              & instruction_funct7[4:3] != 2'b00 
+                              & instruction_funct7[2:0] == 3'b000; 
   assign csrxxx = system_type & instruction_funct3 != 3'b000
                               & instruction_funct3 != 3'b100;
   assign ecall  = system_type & instruction_funct3 == `FUNCT3_ECALL
@@ -1293,7 +1379,7 @@ module decoder (
     instruction_funct3 == 3'b011);
   assign illegal_op =
     op_type &
-    ~(add | sub | slt | sltu | is_and | is_or | is_xor | sll | srl | sra);
+    ~(add | sub | slt | sltu | is_and | is_or | is_xor | sll | srl | sra | fpau);
   assign illegal_op_imm =
     op_imm_type &
     ~(addi | slti | sltiu | andi | ori | xori | slli | srli | srai);
@@ -1314,6 +1400,8 @@ module decoder (
   assign alu_operation_code[3] =
     instruction_funct7[5] &
     ~(addi | slti | sltiu | andi | ori | xori);
+  assign fpau_operation_code =
+    instruction_funct7[6:3];
   assign load =
     load_type &
     ~illegal_load;
@@ -1330,12 +1418,16 @@ module decoder (
     load_type | store_type | jalr_type;
   assign integer_file_write_enable =
     lui_type | auipc_type | jalr_type | jal_type | op_type | op_imm_type | load_type | csrxxx;
+  assign integer_file_write_enable_fpau =
+    fpau;
   assign csr_file_write_enable =
     csrxxx;
   
   always @* begin : writeback_selector_decoding
-    if (op_type == 1'b1 || op_imm_type == 1'b1)
+    if ((op_type == 1'b1 || op_imm_type == 1'b1) && fpau != 1'b1)
       writeback_mux_selector = `WB_ALU;
+    else if (op_type == 1'b1 && fpau == 1'b1)
+      writeback_mux_selector = `WB_FPAU;
     else if (load_type == 1'b1)
       writeback_mux_selector = `WB_LOAD_UNIT;
     else if (jal_type == 1'b1 || jalr_type == 1'b1)

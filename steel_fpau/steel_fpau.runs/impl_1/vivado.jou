@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon Sep  4 18:22:50 2023
+# Process ID: 377207
+# Current directory: /home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.runs/impl_1
+# Command line: vivado -log hello_world.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source hello_world.tcl -notrace
+# Log file: /home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.runs/impl_1/hello_world.vdi
+# Journal file: /home/jj/git_repos/fpau_tests/riscv_cores/riscv-steel-core/steel_fpau/steel_fpau.runs/impl_1/vivado.jou
+# Running On: jj-Inspiron-5558, OS: Linux, CPU Frequency: 2394.265 MHz, CPU Physical cores: 2, Host memory: 16672 MB
+#-----------------------------------------------------------
+source hello_world.tcl -notrace

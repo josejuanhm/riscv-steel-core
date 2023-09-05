@@ -85,14 +85,22 @@ module hello_world (
   always @(posedge clock)
     internal_clock <= !internal_clock;
   
+  clk_wiz_0 inst
+  (
+    // Clock out ports  
+    .clk_35Mhz(clk_35Mhz),
+    // Clock in ports
+    .clk_in1(clock)
+  );
+  
   riscv_steel_core
   riscv_steel_core_instance (
 
     // Basic system signals
-    .clock                        (internal_clock                     ),
+    .clock                        (clk_35Mhz                          ),
     .reset                        (reset                              ),
     .halt                         (halt                               ),
-    .boot_address                 (32'h00000000                       ),
+    .boot_address                 (32'h000005d0                       ),
 
     // Instruction fetch interface
     .instruction_address          (bus_instruction_address            ),
@@ -125,7 +133,7 @@ module hello_world (
   memory_mapper
   memory_mapper_instance        (
   
-    .clock                      (internal_clock             ),
+    .clock                      (clk_35Mhz                  ),
 
     // Connected to RISC-V Steel
     .bus_data_rdata             (bus_data_rdata             ),
@@ -158,13 +166,13 @@ module hello_world (
   
   dual_port_ram
   dual_port_ram_instance    (
-    .clock                  (internal_clock                     ),
+    .clock                  (clk_35Mhz                          ),
     .reset                  (reset                              ),
-    .port0_address          (bus_instruction_address[13:0]      ),
+    .port0_address          (bus_instruction_address[17:0]      ),
     .port0_address_valid    (bus_instruction_address_valid      ),
     .port0_data_out         (bus_instruction_instruction        ),
     .port0_data_out_valid   (bus_instruction_instruction_valid  ),
-    .port1_address          (device0_rw_address[13:0]           ),
+    .port1_address          (device0_rw_address[17:0]           ),
     .port1_address_valid    (device0_rw_address_valid           ),
     .port1_data_out         (device0_rdata                      ),
     .port1_rw_valid         (device0_rw_valid                   ),
@@ -175,7 +183,7 @@ module hello_world (
 
   uart
   uart_instance             (
-    .clock                  (internal_clock                 ),
+    .clock                  (clk_35Mhz                      ),
     .reset                  (reset                          ),
     .uart_rw_address        (device1_rw_address             ),
     .uart_rw_address_valid  (device1_rw_address_valid       ),
@@ -282,13 +290,13 @@ module dual_port_ram (
   input   wire reset,
 
   // Port 0 is read-only (used for instruction fetch)
-  input   wire [13:0] port0_address,  // 14-bit addresses = 16 KB memory
+  input   wire [17:0] port0_address,  // 18-bit addresses = 256 KB memory
   input   wire        port0_address_valid,
   output  reg  [31:0] port0_data_out,
   output  reg         port0_data_out_valid,
 
   // Port 1 is read/write capable
-  input   wire [13:0] port1_address,  // 14-bit addresses = 16 KB memory
+  input   wire [17:0] port1_address,  // 18-bit addresses = 256 KB memory
   input   wire        port1_address_valid,
   output  reg  [31:0] port1_data_out,
   output  reg         port1_rw_valid,
@@ -299,14 +307,14 @@ module dual_port_ram (
   );
 
   // We will make the RAM word-addressed
-  reg [31:0] ram [0:4095];
+  reg [31:0] ram [0:32767]; // 128 KB
 
   // Loads the program into the RAM
   initial $readmemh("hello_world.mem", ram);
 
   // Because we made the RAM word-addressed, we need to shift the last two bits
-  wire [11:0] instruction_address = port0_address >> 2;
-  wire [11:0] data_address        = port1_address >> 2;
+  wire [15:0] instruction_address = port0_address >> 2;
+  wire [15:0] data_address        = port1_address >> 2;
   
   // The code below will be synthesized to a Block RAM
   always @(posedge clock) begin 
@@ -338,7 +346,7 @@ endmodule
 
 module uart #(
 
-  parameter clock_freq = 50000000,
+  parameter clock_freq = 35000000,
   parameter baud_rate  = 9600
 
   )(
