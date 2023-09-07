@@ -100,7 +100,7 @@ module hello_world (
     .clock                        (clk_35Mhz                          ),
     .reset                        (reset                              ),
     .halt                         (halt                               ),
-    .boot_address                 (32'h000005d0                       ),
+    .boot_address                 (32'h000000b0                       ),
 
     // Instruction fetch interface
     .instruction_address          (bus_instruction_address            ),
@@ -310,7 +310,7 @@ module dual_port_ram (
   reg [31:0] ram [0:32767]; // 128 KB
 
   // Loads the program into the RAM
-  initial $readmemh("hello_world.mem", ram);
+  initial $readmemh("program.mem", ram);
 
   // Because we made the RAM word-addressed, we need to shift the last two bits
   wire [15:0] instruction_address = port0_address >> 2;
