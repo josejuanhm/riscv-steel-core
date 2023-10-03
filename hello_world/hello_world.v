@@ -100,7 +100,7 @@ module hello_world (
     .clock                        (clk_35Mhz                          ),
     .reset                        (reset                              ),
     .halt                         (halt                               ),
-    .boot_address                 (32'h000000b0                       ),
+    .boot_address                 (32'h000005d0                       ),
 
     // Instruction fetch interface
     .instruction_address          (bus_instruction_address            ),
