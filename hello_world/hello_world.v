@@ -290,13 +290,13 @@ module dual_port_ram (
   input   wire reset,
 
   // Port 0 is read-only (used for instruction fetch)
-  input   wire [17:0] port0_address,  // 18-bit addresses = 256 KB memory
+  input   wire [16:0] port0_address,  // 17-bit addresses = 128 KB memory
   input   wire        port0_address_valid,
   output  reg  [31:0] port0_data_out,
   output  reg         port0_data_out_valid,
 
   // Port 1 is read/write capable
-  input   wire [17:0] port1_address,  // 18-bit addresses = 256 KB memory
+  input   wire [16:0] port1_address,  // 17-bit addresses = 128 KB memory
   input   wire        port1_address_valid,
   output  reg  [31:0] port1_data_out,
   output  reg         port1_rw_valid,
@@ -313,8 +313,8 @@ module dual_port_ram (
   initial $readmemh("program.mem", ram);
 
   // Because we made the RAM word-addressed, we need to shift the last two bits
-  wire [15:0] instruction_address = port0_address >> 2;
-  wire [15:0] data_address        = port1_address >> 2;
+  wire [14:0] instruction_address = port0_address >> 2;
+  wire [14:0] data_address        = port1_address >> 2;
   
   // The code below will be synthesized to a Block RAM
   always @(posedge clock) begin 
